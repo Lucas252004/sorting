@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorting Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">SORT<span>VIZ</span></div>
+      <p class="tagline">Visualizador de algoritmos de ordenamiento</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- CONTROLS -->
+    <section class="controls-panel">
+      <div class="control-group">
+        <label for="arraySize">Tamaño del array <span id="sizeValue">40</span></label>
+        <input type="range" id="arraySize" min="10" max="100" value="40"/>
+      </div>
+      <div class="control-group">
+        <label for="speed">Velocidad <span id="speedValue">50</span></label>
+        <input type="range" id="speed" min="1" max="100" value="50"/>
+      </div>
+      <button id="generateBtn" class="btn btn-secondary">Generar Array</button>
+    </section>
+
+    <!-- ALGORITHM CARDS -->
+    <section class="algo-grid">
+
+      <!-- SELECTION SORT -->
+      <div class="algo-card" id="card-selection">
+        <div class="card-header">
+          <div class="algo-badge">O(n²)</div>
+          <h2>Selection Sort</h2>
+          <p class="algo-desc">Busca el mínimo y lo coloca en su posición.</p>
+        </div>
+        <div class="viz-container">
+          <canvas id="canvas-selection"></canvas>
+        </div>
+        <div class="card-stats">
+          <div class="stat"><span class="stat-label">Comparaciones</span><span class="stat-value" id="cmp-selection">0</span></div>
+          <div class="stat"><span class="stat-label">Swaps</span><span class="stat-value" id="swp-selection">0</span></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-start" data-algo="selection">▶ Iniciar</button>
+          <button class="btn btn-reset" data-algo="selection">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- INSERTION SORT -->
+      <div class="algo-card" id="card-insertion">
+        <div class="card-header">
+          <div class="algo-badge">O(n²)</div>
+          <h2>Insertion Sort</h2>
+          <p class="algo-desc">Inserta cada elemento en su posición correcta.</p>
+        </div>
+        <div class="viz-container">
+          <canvas id="canvas-insertion"></canvas>
+        </div>
+        <div class="card-stats">
+          <div class="stat"><span class="stat-label">Comparaciones</span><span class="stat-value" id="cmp-insertion">0</span></div>
+          <div class="stat"><span class="stat-label">Swaps</span><span class="stat-value" id="swp-insertion">0</span></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-start" data-algo="insertion">▶ Iniciar</button>
+          <button class="btn btn-reset" data-algo="insertion">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- MERGE SORT -->
+      <div class="algo-card" id="card-merge">
+        <div class="card-header">
+          <div class="algo-badge">O(n log n)</div>
+          <h2>Merge Sort</h2>
+          <p class="algo-desc">Divide y fusiona subarrays ordenados.</p>
+        </div>
+        <div class="viz-container">
+          <canvas id="canvas-merge"></canvas>
+        </div>
+        <div class="card-stats">
+          <div class="stat"><span class="stat-label">Comparaciones</span><span class="stat-value" id="cmp-merge">0</span></div>
+          <div class="stat"><span class="stat-label">Swaps</span><span class="stat-value" id="swp-merge">0</span></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-start" data-algo="merge">▶ Iniciar</button>
+          <button class="btn btn-reset" data-algo="merge">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- QUICK SORT -->
+      <div class="algo-card" id="card-quick">
+        <div class="card-header">
+          <div class="algo-badge">O(n log n)</div>
+          <h2>Quick Sort</h2>
+          <p class="algo-desc">Pivote: divide menores y mayores recursivamente.</p>
+        </div>
+        <div class="viz-container">
+          <canvas id="canvas-quick"></canvas>
+        </div>
+        <div class="card-stats">
+          <div class="stat"><span class="stat-label">Comparaciones</span><span class="stat-value" id="cmp-quick">0</span></div>
+          <div class="stat"><span class="stat-label">Swaps</span><span class="stat-value" id="swp-quick">0</span></div>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-start" data-algo="quick">▶ Iniciar</button>
+          <button class="btn btn-reset" data-algo="quick">↺ Reset</button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>Proyecto portfolio — Licenciatura en Ciencias de la Computación · UBA</p>
+  </footer>
+
+  <script src="algorithms.js"></script>
+  <script src="visualizer.js"></script>
+</body>
+</html>
